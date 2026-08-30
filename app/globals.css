@@ -1,130 +1,362 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@config "../tailwind.config.ts";
+@plugin "tailwindcss-animate";
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
-}
+/* ==========================================================================
+   Finway design system — Ramp-inspired: maximal white, green #32de84 accent
+   ========================================================================== */
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --background: 0 0% 100%;
+  --foreground: 240 6% 10%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 6% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 6% 10%;
+
+  /* brand green — #32de84 */
+  --primary: 149 73% 53%;
+  --primary-foreground: 150 45% 9%;
+
+  --secondary: 240 5% 96%;
+  --secondary-foreground: 240 6% 12%;
+
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 44%;
+
+  --accent: 150 65% 95%;
+  --accent-foreground: 152 55% 18%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 6% 89%;
+  --input: 240 5% 83%;
+  --ring: 149 73% 45%;
+
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* app shell */
+  --sidebar: 48 20% 98%;
+  --sidebar-foreground: 240 5% 26%;
+  --shell: 0 0% 100%;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: 240 6% 7%;
+  --foreground: 0 0% 98%;
+  --card: 240 6% 9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 6% 9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 149 73% 53%;
+  --primary-foreground: 150 45% 9%;
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 4% 15%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 150 30% 16%;
+  --accent-foreground: 150 60% 85%;
+  --destructive: 0 62% 45%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 4% 18%;
+  --input: 240 4% 20%;
+  --ring: 149 73% 45%;
+  --sidebar: 240 6% 8%;
+  --sidebar-foreground: 240 5% 74%;
+  --shell: 240 6% 7%;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-color: hsl(var(--border));
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+}
+
+/* Ramp-like tight display headings */
+@utility display {
+  letter-spacing: -0.022em;
+  font-weight: 600;
+}
+
+/* Scrollbars ------------------------------------------------------------- */
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
-  body {
-    @apply bg-background text-foreground;
+}
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
   }
-  html {
-    @apply font-sans;
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 9999px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: hsl(240 5% 78%);
+  }
+}
+
+@utility flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* number columns / financial figures */
+@utility tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+@layer components {
+  /* --- generic form bits ------------------------------------------------ */
+  .input-class {
+    @apply h-11 rounded-[3px] border border-input bg-background px-3.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:border-foreground/40;
+  }
+
+  .form-item {
+    @apply flex w-full flex-col gap-1.5;
+  }
+  .form-label {
+    @apply text-sm font-medium text-foreground;
+  }
+  .form-message {
+    @apply text-[13px] text-destructive;
+  }
+  .form-btn {
+    @apply h-11 w-full rounded-[3px] bg-primary text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90;
+  }
+  .form-link {
+    @apply text-sm font-semibold text-primary hover:underline;
+  }
+
+  /* --- app shell ------------------------------------------------------- */
+  .sidebar {
+    @apply sticky left-0 top-0 flex h-screen w-[248px] shrink-0 flex-col justify-between border-r border-border bg-[hsl(var(--sidebar))] px-3 py-4 max-md:hidden;
+  }
+  .sidebar-logo {
+    @apply text-[17px] font-semibold tracking-tight text-foreground;
+  }
+  .sidebar-link {
+    @apply flex items-center gap-2.5 rounded-lg px-2.5 py-[7px] text-[13.5px] font-medium text-[hsl(var(--sidebar-foreground))] transition-colors hover:bg-black/[0.04];
+  }
+  .sidebar-link-active {
+    @apply bg-white text-foreground shadow-[0_1px_2px_rgba(16,24,40,0.06),0_0_0_1px_rgba(16,24,40,0.04)];
+  }
+  .sidebar-label {
+    @apply truncate;
+  }
+
+  .shell-topbar {
+    @apply sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur-sm sm:px-6;
+  }
+  .root-layout {
+    @apply flex h-14 items-center justify-between border-b border-border px-4 md:hidden;
+  }
+
+  /* --- page scaffolding --------------------------------------------------- */
+  .page {
+    @apply no-scrollbar mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-8;
+  }
+  .home {
+    @apply no-scrollbar flex w-full flex-1 flex-row overflow-y-auto;
+  }
+  .home-content {
+    @apply no-scrollbar mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-8;
+  }
+  .home-header {
+    @apply flex flex-col gap-6;
+  }
+
+  .header-box {
+    @apply flex flex-col gap-1;
+  }
+  .header-box-title {
+    @apply display text-[26px] leading-tight text-foreground sm:text-[30px];
+  }
+  .header-box-subtext {
+    @apply text-sm text-muted-foreground;
+  }
+  .header-2 {
+    @apply text-[15px] font-semibold text-foreground;
+  }
+
+  /* --- cards / surfaces ------------------------------------------------- */
+  .surface {
+    @apply rounded-xl border border-border bg-card;
+  }
+  .total-balance {
+    @apply flex w-full flex-col gap-5 rounded-xl border border-border bg-card p-5 sm:flex-row sm:items-center sm:gap-6 sm:p-6;
+  }
+  .total-balance-chart {
+    @apply flex size-[110px] shrink-0 items-center justify-center;
+  }
+  .total-balance-label {
+    @apply text-[13px] font-medium text-muted-foreground;
+  }
+  .total-balance-amount {
+    @apply tnum text-[28px] font-semibold tracking-tight text-foreground;
+  }
+
+  .recent-transactions {
+    @apply flex w-full flex-col gap-4;
+  }
+  .recent-transactions-label {
+    @apply text-[17px] font-semibold tracking-tight text-foreground;
+  }
+  .view-all-btn {
+    @apply inline-flex h-8 items-center rounded-lg border border-border bg-background px-3 text-[13px] font-medium text-foreground transition-colors hover:bg-muted;
+  }
+
+  /* --- right sidebar ------------------------------------------------------ */
+  .right-sidebar {
+    @apply no-scrollbar hidden h-[calc(100vh-3.5rem)] w-[320px] shrink-0 flex-col overflow-y-auto border-l border-border bg-[hsl(var(--sidebar))] xl:flex;
+  }
+  .profile {
+    @apply flex flex-col items-start gap-3 border-b border-border p-6;
+  }
+  .profile-img {
+    @apply flex size-14 items-center justify-center rounded-full bg-accent text-lg font-semibold text-accent-foreground;
+  }
+  .profile-name {
+    @apply text-[15px] font-semibold text-foreground;
+  }
+  .profile-email {
+    @apply text-[13px] text-muted-foreground;
+  }
+  .banks {
+    @apply flex flex-col gap-4 p-6;
+  }
+
+  /* --- my banks / transactions ----------------------------------------- */
+  .my-banks {
+    @apply no-scrollbar mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-6 overflow-y-auto px-4 py-6 sm:px-6 lg:px-8 lg:py-8;
+  }
+  .transactions {
+    @apply no-scrollbar mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-6 overflow-y-auto px-4 py-6 sm:px-6 lg:px-8 lg:py-8;
+  }
+  .transactions-header {
+    @apply flex flex-col gap-4;
+  }
+  .transactions-account {
+    @apply flex flex-col justify-between gap-4 rounded-xl border border-border bg-card p-5 md:flex-row md:items-center;
+  }
+  .transactions-account-balance {
+    @apply flex min-w-[180px] flex-col items-start gap-1 rounded-lg bg-muted px-4 py-3;
+  }
+
+  /* --- bank card ------------------------------------------------------- */
+  .bank-card {
+    @apply relative flex h-[190px] w-full max-w-[320px] flex-col justify-between overflow-hidden rounded-2xl bg-[linear-gradient(135deg,#0f7f49_0%,#18c46e_55%,#32de84_100%)] p-5 text-white shadow-[0_10px_24px_-8px_rgba(15,127,73,0.45)];
+  }
+  .bank-card_content {
+    @apply relative z-10 flex flex-col gap-2;
+  }
+  .bank-card_icon {
+    @apply relative z-10 flex items-center justify-between;
+  }
+
+  .bank-info {
+    @apply flex items-center gap-3 rounded-lg border border-transparent p-3 transition-all;
+  }
+  .bank-info_content {
+    @apply flex flex-1 items-center justify-between gap-2 overflow-hidden;
+  }
+
+  .category-badge {
+    @apply inline-flex w-fit items-center gap-1.5 truncate rounded-full border px-2 py-0.5 text-[12px] font-medium;
+  }
+  .banktab-item {
+    @apply flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all hover:text-foreground;
+  }
+
+  /* --- mobile nav ------------------------------------------------------ */
+  .mobilenav-sheet {
+    @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto;
+  }
+  .mobilenav-sheet_close {
+    @apply flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[hsl(var(--sidebar-foreground))];
+  }
+
+  /* --- plaid link ---------------------------------------------------------- */
+  .plaidlink-primary {
+    @apply inline-flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90;
+  }
+  .plaidlink-ghost {
+    @apply flex w-full cursor-pointer items-center gap-2.5 rounded-lg px-2.5 py-[7px] text-[13.5px] font-medium text-[hsl(var(--sidebar-foreground))] transition-colors hover:bg-black/[0.04];
+  }
+  .plaidlink-default {
+    @apply flex w-full cursor-pointer items-center gap-2.5 rounded-lg px-2.5 py-[7px] text-[13.5px] font-medium text-[hsl(var(--sidebar-foreground))] transition-colors hover:bg-black/[0.04];
+  }
+
+  /* --- auth ---------------------------------------------------------------- */
+  .auth-asset {
+    @apply sticky top-0 hidden h-screen w-1/2 items-center justify-center bg-[hsl(var(--sidebar))] p-10 lg:flex;
+  }
+  .auth-form {
+    @apply mx-auto flex min-h-screen w-full max-w-[560px] flex-col justify-center gap-8 px-4 py-10 sm:px-6;
+  }
+
+  /* --- payment transfer -------------------------------------------------- */
+  .payment-transfer {
+    @apply no-scrollbar mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-6 overflow-y-auto px-4 py-6 sm:px-6 lg:px-8 lg:py-8;
+  }
+  .payment-transfer_form-item {
+    @apply flex w-full max-w-[720px] flex-col gap-2 border-b border-border py-5 md:flex-row md:gap-8;
+  }
+  .payment-transfer_form-content {
+    @apply flex w-full max-w-[280px] flex-col gap-1;
+  }
+  .payment-transfer_form-details {
+    @apply flex flex-col gap-1 py-2;
+  }
+  .payment-transfer_btn-box {
+    @apply mt-4 flex w-full max-w-[720px] flex-col gap-2;
+  }
+  .payment-transfer_btn {
+    @apply h-11 w-full rounded-[3px] bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/90;
+  }
+
+  /* --- footer / user chip -------------------------------------------------- */
+  .footer {
+    @apply flex items-center gap-2.5 rounded-lg px-2 py-2;
+  }
+  .footer_name {
+    @apply flex size-8 shrink-0 items-center justify-center rounded-full bg-accent text-[13px] font-semibold text-accent-foreground;
+  }
+  .footer_name-mobile {
+    @apply flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground;
+  }
+  .footer_email {
+    @apply flex min-w-0 flex-1 flex-col;
+  }
+  .footer_email-mobile {
+    @apply flex min-w-0 flex-1 flex-col;
+  }
+  .footer_image {
+    @apply flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground;
   }
 }
